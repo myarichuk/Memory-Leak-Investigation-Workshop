@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartService", "ShoppingCartService\ShoppingCartService.csproj", "{7C7EB8C5-072B-4107-B34F-D0446263C38C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31624FD2-280A-4C12-B77E-E05F17C9DF1B}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -14,15 +12,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced", "Advanced", "{AB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basics", "Basics", "{A0DC34D9-D10E-4B52-BBEA-D427B86754CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp1", "MysteryApp1\MysteryApp1.csproj", "{FBD8EC03-8C80-411F-AC9B-2A25B59F155D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp1", "Basics\MysteryApp1\MysteryApp1.csproj", "{FBD8EC03-8C80-411F-AC9B-2A25B59F155D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{FDB3BB4F-C44B-4813-AD0D-C7B3BE935C69}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp2", "MysteryApp2\MysteryApp2.csproj", "{28E687EA-8437-4777-909C-7D5DBBD545FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp2", "Basics\MysteryApp2\MysteryApp2.csproj", "{28E687EA-8437-4777-909C-7D5DBBD545FC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp3", "MysteryApp3\MysteryApp3.csproj", "{558642FF-1DBD-4D3B-AE29-1F6C098DC821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp3", "Basics\MysteryApp3\MysteryApp3.csproj", "{558642FF-1DBD-4D3B-AE29-1F6C098DC821}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysteryApp4", "MysteryApp4\MysteryApp4.csproj", "{E21C2CA3-D751-4B07-B60A-F52994E035B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp4", "Basics\MysteryApp4\MysteryApp4.csproj", "{E21C2CA3-D751-4B07-B60A-F52994E035B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartService", "Advanced\ShoppingCartService\ShoppingCartService.csproj", "{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7C7EB8C5-072B-4107-B34F-D0446263C38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C7EB8C5-072B-4107-B34F-D0446263C38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C7EB8C5-072B-4107-B34F-D0446263C38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C7EB8C5-072B-4107-B34F-D0446263C38C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FBD8EC03-8C80-411F-AC9B-2A25B59F155D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FBD8EC03-8C80-411F-AC9B-2A25B59F155D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBD8EC03-8C80-411F-AC9B-2A25B59F155D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,16 +50,20 @@ Global
 		{E21C2CA3-D751-4B07-B60A-F52994E035B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E21C2CA3-D751-4B07-B60A-F52994E035B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E21C2CA3-D751-4B07-B60A-F52994E035B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{7C7EB8C5-072B-4107-B34F-D0446263C38C} = {AB5F5C38-351D-4575-B544-23EF4149B599}
 		{FBD8EC03-8C80-411F-AC9B-2A25B59F155D} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 		{28E687EA-8437-4777-909C-7D5DBBD545FC} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 		{558642FF-1DBD-4D3B-AE29-1F6C098DC821} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 		{E21C2CA3-D751-4B07-B60A-F52994E035B6} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
+		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD} = {AB5F5C38-351D-4575-B544-23EF4149B599}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEE9ED53-C13B-4DF2-ABDB-2A2CCE6A1B91}
