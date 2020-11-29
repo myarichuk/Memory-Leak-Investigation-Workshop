@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MysteryApp4", "Basics\Myste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartService", "Advanced\ShoppingCartService\ShoppingCartService.csproj", "{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysteryApp5", "MysteryApp5\MysteryApp5.csproj", "{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{558642FF-1DBD-4D3B-AE29-1F6C098DC821} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 		{E21C2CA3-D751-4B07-B60A-F52994E035B6} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 		{3A2DB4C9-1A10-4F56-8BAB-71604E64A5FD} = {AB5F5C38-351D-4575-B544-23EF4149B599}
+		{B94B89A3-3B29-4788-8534-5A3EC5D6E1F0} = {A0DC34D9-D10E-4B52-BBEA-D427B86754CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEE9ED53-C13B-4DF2-ABDB-2A2CCE6A1B91}
