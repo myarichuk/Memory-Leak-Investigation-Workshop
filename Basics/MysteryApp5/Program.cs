@@ -1,41 +1,26 @@
-﻿using Bogus;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Utils;
 
 namespace MysteryApp5
 {
-    public class Person
+    public class TimerEventDispatcher
     {
-        public string Name { get; set; }
+        private System.Timers.Timer _timer;
 
-        public string ReportsTo { get; set; }
-
-        public int SomeData { get; set; }
-    }
-
-    public class StatisticsHolder
-    {
-        public double SumOfData { get; private set; }
-
-        public void ProcessData(List<Person> data, Person targetPerson)
+        public TimerEventDispatcher(System.Timers.Timer timer)
         {
-            try
-            {
-                var person = data.Find(d => d.ReportsTo == targetPerson.Name);
-                if (person != null)
-                    SumOfData += person.SomeData;
-            }
-            catch (Exception ex)
-            {
-            }
+
+            _timer = timer;
+            _timer.Elapsed += (_, e) => OnAlarmNow(e);
         }
 
+        public event EventHandler TimerElapsedNow;
+
+
+        protected virtual void OnAlarmNow(EventArgs e) => 
+            TimerElapsedNow?.Invoke(this, e);
     }
 
     public static class Program
@@ -59,20 +44,17 @@ namespace MysteryApp5
                 }
             });
 
-            var peopleFaker = new Faker<Person>()
-                .RuleFor(p => p.Name, f => f.Name.FullName())
-                .RuleFor(p => p.ReportsTo, f => f.Name.FullName())
-                .RuleFor(p => p.SomeData, f => f.Random.Number(0, 100));
-
-            var dataHolder = new StatisticsHolder();
-            var peopleList = peopleFaker.Generate(5_000_000).ToList();
-
-            var task = Task.Run(async () =>
+            var task = Task.Run(() =>
             {
+                var timer = new System.Timers.Timer(500);
+                timer.Start();
+
                 while(!mre.IsSet)
                 {
-                    var person = peopleFaker.Generate();
-                    dataHolder.ProcessData(peopleList, person);
+                    var eventDispatcher = new TimerEventDispatcher(timer);
+                    eventDispatcher.TimerElapsedNow += EventDispatcher_TimerElapsedNow;
+
+                    Thread.Sleep(50);
                 }
             });
 
@@ -81,6 +63,10 @@ namespace MysteryApp5
 
             Task.WaitAll(task, memoryTask);
             Console.WriteLine("OK, bye!");
+        }
+
+        private static void EventDispatcher_TimerElapsedNow(object sender, EventArgs e)
+        {
         }
     }
 }
