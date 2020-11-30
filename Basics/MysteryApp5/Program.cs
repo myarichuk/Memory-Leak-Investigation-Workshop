@@ -48,13 +48,14 @@ namespace MysteryApp5
             {
                 var timer = new System.Timers.Timer(500);
                 timer.Start();
-
+                int x = 0;
                 while(!mre.IsSet)
                 {
                     var eventDispatcher = new TimerEventDispatcher(timer);
                     eventDispatcher.TimerElapsedNow += EventDispatcher_TimerElapsedNow;
 
-                    Thread.Sleep(50);
+                    if (++x % 2000 == 0)
+                        Thread.Sleep(50);
                 }
             });
 
