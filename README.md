@@ -13,4 +13,4 @@ Here you will find "mystery" apps that contain some sort of memory management re
   Note 2: *!sym noisy on* command will enable debug output to see what kind of symbols WinDbg looks for and why the resolution is missing.
   ![](https://github.com/myarichuk/Memory-Leak-Investigation-Workshop/blob/master/Images/SymbolsInWinDBG.PNG) 
 5. Download **Process Explorer** from [here](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer). It will be useful for taking dumps of processes.
-6. Download **SOSEX** extension and place it at a folder without whitespaces. You can download it from [it's site](http://www.stevestechspot.com/SOSEXV40NowAvailable.aspx)
+6. Download and install Windows 10 SDK (you can [download it from here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/)). Make sure to tick **Debugging Tools for Windows** when you install
