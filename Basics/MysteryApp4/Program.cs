@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +7,40 @@ using Utils;
 
 namespace MysteryApp4
 {
-    class Program
+    public class CloseableThreadLocal
+    {
+        [ThreadStatic] 
+        private static Dictionary<object, object> slots;
+
+        public static Dictionary<object, object> Slots => 
+            slots ??= new Dictionary<object, object>();
+
+        protected virtual object InitialValue() => null;
+
+        public virtual object Get()
+        {
+            object val;
+
+            if (Slots.TryGetValue(this, out val))
+                return val;
+
+            val = InitialValue();
+            Set(val);
+
+            return val;
+        }
+
+        public virtual void Set(object val) => 
+            Slots[this] = val;
+
+        public virtual void Close()
+        {
+            if (slots != null)// intentionally using the field here, to avoid creating the instance
+                slots.Remove(this);
+        }
+    }
+
+    static class Program
     {
         static void Main(string[] args)
         {
@@ -25,21 +59,28 @@ namespace MysteryApp4
                     Thread.Sleep(1000);
                 }
             });
+            
+            ThreadPool.SetMinThreads(1000, 100);
 
-            var task = Task.Run(async () =>
+            var task = Task.Run(() =>
             {
-                
-                while(!mre.IsSet)
+                var tl = new CloseableThreadLocal();
+                int x = 0;
+                while (!mre.IsSet)
                 {
-                    using var cts = new CancellationTokenSource();
-                    Func<Task> fun = async () => await Task.Delay(100, cts.Token);
+                    Task.Run(() =>
+                    {
+                        tl.Set("hello!");
+                        _ = tl.Get();
+                        Thread.Sleep(10);
+                    });
+                    
+                    if(++x % 1000 == 0)
+                    {
+                        GC.Collect(2);
+                        GC.WaitForPendingFinalizers();
+                    }
 
-                    await fun();
-
-                    // uncomment the following lines to see interesting allocation pattern changes!
-                    //GC.Collect(2);
-                    //GC.WaitForPendingFinalizers();
-                    //GC.Collect();
                 }
             });
 
