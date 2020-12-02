@@ -8,13 +8,16 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Carter" Version="5.2.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="RavenDB.Embedded" Version="5.1.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="data">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

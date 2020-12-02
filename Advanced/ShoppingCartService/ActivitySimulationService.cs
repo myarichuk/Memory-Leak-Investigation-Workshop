@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ShoppingCartService
 {
-    public class ActivitySimulationWorker : BackgroundService
+    public class ActivitySimulationService : BackgroundService
     {
-        private readonly ILogger<ActivitySimulationWorker> _logger;
+        private readonly ILogger<ActivitySimulationService> _logger;
 
-        public ActivitySimulationWorker(ILogger<ActivitySimulationWorker> logger)
+        public ActivitySimulationService(ILogger<ActivitySimulationService> logger)
         {
             _logger = logger;
         }

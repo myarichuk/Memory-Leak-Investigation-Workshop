@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingCartService
 {
@@ -21,17 +19,14 @@ namespace ShoppingCartService
 
             var interfaces = scanAssemblies
                 .SelectMany(o => o.DefinedTypes
-                    .Where(x => x.IsInterface)
-                    .Where(x => x != typeof(T))
-                    .Where(x => typeof(T).IsAssignableFrom(x))
+                    .Where(x => x.IsInterface && x != typeof(T) && typeof(T).IsAssignableFrom(x))
                 );
 
             foreach (var @interface in interfaces)
             {
                 var types = scanAssemblies
                     .SelectMany(o => o.DefinedTypes
-                        .Where(x => x.IsClass)
-                        .Where(x => @interface.IsAssignableFrom(x))
+                        .Where(x => x.IsClass && @interface.IsAssignableFrom(x))
                     );
 
                 if (predicates?.Count() > 0)
