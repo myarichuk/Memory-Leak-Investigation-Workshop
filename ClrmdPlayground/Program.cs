@@ -21,7 +21,7 @@ namespace ClrmdPlayground
             if (_target.ClrVersions.Length == 0)
                 throw new InvalidOperationException("Haven't found relevant CLR versions for the dump, cannot continue with the import");
 
-            _runtime = _target.CreateRuntime();            
+            _runtime = _target.CreateRuntime();
 
             var allStrings = _runtime.Heap.EnumerateObjects()
                                 .Where(x => x.Type.Name == "System.String")

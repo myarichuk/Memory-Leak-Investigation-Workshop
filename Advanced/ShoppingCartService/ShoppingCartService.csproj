@@ -14,9 +14,6 @@
     <PackageReference Include="RavenDB.Embedded" Version="5.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Activities\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="data">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
