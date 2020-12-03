@@ -15,7 +15,7 @@ namespace ShoppingCartService
 
         public DataHandler(IDocumentStore store) => _store = store;
 
-        //should run only once
+        //should run only once at start
         public async Task EnsureSampleDataAsync()
         {
             using var session = _store.OpenAsyncSession();
@@ -48,6 +48,13 @@ namespace ShoppingCartService
         {
             using var session = _store.OpenSession();
             return session.Load<T>(id);
+        }
+
+        internal void DeleteById(string id)
+        {
+            using var session = _store.OpenSession();
+            session.Delete(id);
+            session.SaveChanges();
         }
 
         internal IEnumerable<T> Query<T>(int skip = 0, int take = 4096)

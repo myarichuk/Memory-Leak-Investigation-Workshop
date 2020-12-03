@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace ShoppingCartService.Model
 {
-
     public class Order
     {
         public string Id { get; set; }

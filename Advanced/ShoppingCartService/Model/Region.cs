@@ -7,6 +7,6 @@ namespace ShoppingCartService.Model
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public List<Territory> Territories { get; set; }
+        public List<Territory> Territories { get; set; }        
     }
 }

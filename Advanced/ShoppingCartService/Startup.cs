@@ -1,11 +1,9 @@
 ﻿using Carter;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Raven.Client.Documents;
 using Raven.Embedded;
-using ShoppingCartService.Model;
+using ShoppingCartService.Utils;
 
 namespace ShoppingCartService
 {
@@ -24,11 +22,15 @@ namespace ShoppingCartService
                 return EmbeddedServer.Instance.GetDocumentStore("ShoppingCart");
             });
 
-            services.AddSingleton<DataHandler>();
+            //shared cache between all endpoints
+            services.AddSingleton<IMemoryCache, InMemoryCache>();
+            services.AddTransient<DataHandler>();
         }
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseExceptionHandler("/errorhandler");
+
             app.UseRouting();
             app.UseEndpoints(builder => builder.MapCarter());
         }
