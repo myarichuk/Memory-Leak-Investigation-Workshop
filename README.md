@@ -1,5 +1,5 @@
-# Memory-Leak-Investigation-Workshop
-A repository with code for hands-on excercises of memory leak investigation workshop.
+# Workshop for memory leak investigation
+A repository with code for demos/hands-on excercises of memory leak investigation workshop.
 Here you will find "mystery" apps that contain some sort of memory management related issue.
 
 ### Getting started
